@@ -2,9 +2,11 @@ PHP mail sender (CEDA Health)
 ====================
 
 **Config**
+
 * `config/mail-auth.ini` file contains email auth and other important configs
 
 **Project**
+
 * `/index.php` will redirect to '/src/index.php'
 * packages used: 
     * `composer`
