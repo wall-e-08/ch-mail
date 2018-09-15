@@ -7,7 +7,7 @@ PHP mail sender (CEDA Health)
 
 **Project**
 
-* `/index.php` will redirect to '/src/index.php'
+* `/index.php` will redirect to `/src/index.php`
 * packages used: 
     * `composer`
     * [`php mailer`](https://github.com/PHPMailer/PHPMailer)
