@@ -1,0 +1,28 @@
+table.table.table-bordered{
+    border: 3px solid #343a40;
+}
+
+.table tr>td:first-child {
+    width: 120px;
+}
+
+th.heading {
+    border-bottom: 2px solid #343a40 !important;
+}
+
+textarea.form-control{
+    resize: none;
+    height: 140px;
+}
+
+pre.muted-texts {
+    font-family: inherit;
+    font-size: 1rem;
+    height: 140px;
+}
+
+@media (min-width: 768px) {
+    .table tr>td:first-child {
+        width: 200px;
+    }
+}
