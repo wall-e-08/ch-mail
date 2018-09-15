@@ -22,7 +22,7 @@ var v_app = new Vue({
                 name: "Accident Information",
                 all_inputs: [
                     {label: "Accident Type", type: "text", name:"acc_type"},
-                    {label: "Accident Date", type: "text", name:"acc_date"},
+                    {label: "Accident Date", type: "date", name:"acc_date"},
                     {label: "Insurance 1", type: "text", name:"ins_1"},
                     {label: "Insurance 2", type: "text", name:"ins_2"},
                     {label: "Description of accident", type: "textarea", name:"acc_description"},

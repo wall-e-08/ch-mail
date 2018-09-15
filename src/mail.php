@@ -248,7 +248,7 @@ try {
     <div class="container mt-5">
         <div class="row">
             <div class="col-12 text-center">
-                <h1 class="mb-4">Your mail has been sent</h1>
+                <h1 class="mb-4">Your mail has been sent to: <?php echo $mail_auth_arr['to_addr']; ?></h1>
                 <a class="btn btn-primary" href="index.php">Go Back</a>
             </div>
         </div>
