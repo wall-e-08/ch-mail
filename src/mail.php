@@ -204,10 +204,10 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // ini config file
-$mail_auth_arr = parse_ini_file("../config/mymail-auth.ini");
+$mail_auth_arr = parse_ini_file("../config/mail-auth.ini");
 echo '<pre>';
 var_dump($mail_auth_arr);
-
+echo '</pre>';
 //Load Composer's autoloader
 require 'vendor/autoload.php';
 
@@ -248,23 +248,31 @@ try {
     <div class="container mt-5">
         <div class="row">
             <div class="col-12 text-center">
+                <h1 class="mb-4">Your mail has been sent</h1>
                 <a class="btn btn-primary" href="index.php">Go Back</a>
             </div>
         </div>
     </div>
     
-    <script src="js/jquery-3.3.1.min.js"></script>
-    </body>
-    </html>
-    <script>
-        (function ($) {
-            $(document).ready(function () {
-                
-            })
-        })(jQuery)
-    </script>
 <?php
 } catch (Exception $e) {
     echo 'Message could not be sent. Mailer Error: ', $mail->ErrorInfo;
+    echo '
+    </div>
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-12 text-center">
+                <h1 class="mb-4">Your mail can not be sent. Fix errors below or check the config files: "/config/"</h1>
+                <a class="btn btn-primary mb-5" href="index.php">Go Back</a>
+                <div class="text-left">
+                    <p class="font-weight-bold">Errors:</p>
+                    <pre>' . $mail->ErrorInfo . '</pre>
+                </div>
+            </div>
+        </div>
+    </div>
+    ';
 }
 ?>
+</body>
+</html>
