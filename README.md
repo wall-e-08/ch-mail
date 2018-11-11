@@ -1,4 +1,4 @@
-PHP mail sender (CEDA Health)
+PHP mail sender
 ====================
 
 **Config**
