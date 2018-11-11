@@ -26,3 +26,10 @@ pre.muted-texts {
         width: 200px;
     }
 }
+
+
+.indicator {
+    width: 17px;
+    height: 17px;
+    border-width: 4px !important;
+}
