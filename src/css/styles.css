@@ -28,7 +28,7 @@ pre.muted-texts {
 }
 
 
-.indicator {
+#indicator>div {
     width: 17px;
     height: 17px;
     border-width: 4px !important;
