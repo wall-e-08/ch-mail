@@ -23,7 +23,7 @@ pre.muted-texts {
 
 @media (min-width: 768px) {
     .table tr>td:first-child {
-        width: 200px;
+        width: 300px;
     }
 }
 

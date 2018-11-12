@@ -1,6 +1,6 @@
 var log = console.log;
 
-var ques = new Vue({
+new Vue({
     el: '#app',
     data: {
         current_stage: "",
@@ -14,11 +14,6 @@ var ques = new Vue({
     mounted: function () {
         this.current_stage = this.stage.lang;
         log("Current Stage: " + this.current_stage);
-
-        $("input[data-picker='time']").timepicker({
-            timeFormat: "hh:mm tt"
-        });
-        $("input[data-picker='date']").datepicker();
     },
     methods: {
         get_key_by_val(obj, val) {
@@ -36,15 +31,17 @@ var ques = new Vue({
             var _t = this;
 
             $('#submit-btn').addClass('disabled').children('img').removeClass('d-none').prev().addClass('d-none');
-
-            $("#apmt_loc_name").val(_t.selected_location.name);
-            $("#apmt_loc_address").val(_t.selected_location.address);
-            $("#apmt_loc_available_time").val(_t.selected_location.available_time);
         },
     },
     watch: {
         current_stage() {
             $('#indicator-' + this.current_stage).removeClass('bg-transparent');
+            if(this.current_stage === this.stage.main){
+                $("input[data-picker='time']").timepicker({
+                    timeFormat: "hh:mm tt"
+                });
+                $("input[data-picker='date']").datepicker();
+            }
         }
     },
 });
