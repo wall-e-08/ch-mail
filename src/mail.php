@@ -186,7 +186,7 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 
 // ini config file
-$mail_auth_arr = parse_ini_file("../config/mymail-auth.ini");
+$mail_auth_arr = parse_ini_file("../config/mail-auth.ini");
 echo '<pre>';
 var_dump($mail_auth_arr);
 echo '</pre>';
