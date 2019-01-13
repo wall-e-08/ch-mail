@@ -1,7 +1,7 @@
 <?php
-echo '<pre>';
+/*echo '<pre>';
 print_r($_POST);
-echo '</pre>';
+echo '</pre>';*/
 
 $message = '
 <!doctype html>
@@ -31,11 +31,7 @@ $message = '
     </tr>
     <tr>
         <td>Phone Number:</td>
-        <td>' . $_POST['form_phn'] . '</td>
-    </tr>
-    <tr>
-        <td>Language:</td>
-        <td>' . $_POST['form_lang'] . '</td>
+        <td>' . $_POST['form_phone'] . '</td>
     </tr>
     </tbody>
 </table>
@@ -113,6 +109,26 @@ if($_POST['form_accident'] == 'ca'){
         <td>Was it an Uber or a Lyft?</td>
         <td>' . $_POST['form_car_company'] . '</td>
     </tr>
+    <tr>
+        <td>Appointment Location name</td>
+        <td>' . $_POST['form_apmt_loc_name'] . '</td>
+    </tr>
+    <tr>
+        <td>Appointment Address</td>
+        <td>' . $_POST['form_apmt_loc_address'] . '</td>
+    </tr>
+    <tr>
+        <td>Appointment Available Time</td>
+        <td>' . $_POST['form_apmt_loc_available_time'] . '</td>
+    </tr>
+    <tr>
+        <td>Would you like to speak to an attorney?</td>
+        <td>' . $_POST['form_attorney'] . '</td>
+    </tr>
+    <tr>
+        <td>How you heard about us?</td>
+        <td>' . $_POST['form_affiliate'] . '</td>
+    </tr>
     </tbody>
 </table>
 ';
@@ -150,12 +166,24 @@ if($_POST['form_accident'] == 'ca'){
         <td>' . $_POST['form_time'] . '</td>
     </tr>
     <tr>
-        <td>How you heard about us?</td>
-        <td>' . $_POST['form_affiliate'] . '</td>
+        <td>Appointment Location name</td>
+        <td>' . $_POST['form_apmt_loc_name'] . '</td>
+    </tr>
+    <tr>
+        <td>Appointment Address</td>
+        <td>' . $_POST['form_apmt_loc_address'] . '</td>
+    </tr>
+    <tr>
+        <td>Appointment Available Time</td>
+        <td>' . $_POST['form_apmt_loc_available_time'] . '</td>
     </tr>
     <tr>
         <td>Would you like to speak to an attorney?</td>
         <td>' . $_POST['form_attorney'] . '</td>
+    </tr>
+    <tr>
+        <td>How you heard about us?</td>
+        <td>' . $_POST['form_affiliate'] . '</td>
     </tr>
     </tbody>
 </table>
@@ -187,9 +215,35 @@ use PHPMailer\PHPMailer\Exception;
 
 // ini config file
 $mail_auth_arr = parse_ini_file("../config/mail-auth.ini");
-echo '<pre>';
+
+if($_ENV['TO_EMAIL']) {
+    $mail_auth_arr['to_addr'] = $_ENV['TO_EMAIL'];
+}
+if($_ENV['FROM_EMAIL']) {
+    $mail_auth_arr['username'] = $_ENV['FROM_EMAIL'];
+}
+if($_ENV['FROM_NAME']) {
+    $mail_auth_arr['to_name'] = $_ENV['FROM_NAME'];
+}
+if($_ENV['FROM_PASSWORD']) {
+    $mail_auth_arr['password'] = $_ENV['FROM_PASSWORD'];
+}
+if($_ENV['EMAIL_HOST']) {
+    $mail_auth_arr['host'] = $_ENV['EMAIL_HOST'];
+}
+if($_ENV['EMAIL_PORT']) {
+    $mail_auth_arr['port'] = $_ENV['EMAIL_PORT'];
+}
+if(!$mail_auth_arr['host']){
+    $mail_auth_arr['host'] = 'smtp.gmail.com';
+}
+if($mail_auth_arr['port']) {
+    $mail_auth_arr['port'] = 587;
+}
+
+/*echo '<pre>';
 var_dump($mail_auth_arr);
-echo '</pre>';
+echo '</pre>';*/
 //Load Composer's autoloader
 require 'vendor/autoload.php';
 
